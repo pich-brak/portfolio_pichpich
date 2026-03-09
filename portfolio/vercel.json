@@ -1,0 +1,14 @@
+{
+  "version": 2,
+  "buildCommand": "echo 'Static site'",
+  "outputDirectory": ".",
+  "env": {},
+  "regions": ["iad1"],
+  "functions": {},
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/portfolio/$1"
+    }
+  ]
+}

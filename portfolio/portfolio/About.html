@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>About Me - Pich Brak</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f3f7f9;
+      color: #333;
+    }
+
+    /* Navigation */
+    nav {
+      background: #ffffff;
+      padding: 15px 20px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    #menuToggle {
+      display: none;
+      font-size: 1.8rem;
+      background: transparent;
+      border: 2px solid #009688;
+      border-radius: 6px;
+      padding: 6px 10px;
+      color: #009688;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    #menuToggle:hover,
+    #menuToggle:focus {
+      background-color: #009688;
+      color: #fff;
+      outline: none;
+      box-shadow: 0 0 5px #009688aa;
+    }
+
+    #navLinks {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+      overflow: hidden;
+      max-height: none; /* default for desktop */
+      transition: max-height 0.4s ease;
+    }
+
+    nav a {
+      color: #009688;
+      text-decoration: none;
+      font-weight: 600;
+      padding: 8px 4px;
+      display: inline-block;
+      transition: color 0.3s ease, background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    nav a[aria-current="page"] {
+      border-bottom: 3px solid #009688;
+    }
+
+    nav a:hover:not([aria-current="page"]) {
+      color: #00796b;
+      background-color: #b2dfdb33;
+      border-radius: 4px;
+      transform: translateY(-2px);
+    }
+
+    nav a:focus-visible {
+      outline: 2px solid #009688;
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* About Section */
+    .about-container {
+      max-width: 1000px;
+      margin: 60px auto;
+      padding: 40px;
+      background: linear-gradient(135deg, #ffffff, #e0f2f1);
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+      display: flex;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      gap: 30px;
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    .profile-image {
+      flex: 1 1 250px;
+      text-align: center;
+    }
+
+    .profile-image img {
+      width: 250px;
+      height: 250px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      animation: popIn 1s ease forwards;
+    }
+
+    .about-text {
+      flex: 2 1 400px;
+    }
+
+    .about-text h2 {
+      display: flex;
+      align-items: center;
+      font-size: 2rem;
+      color: #009688;
+      margin-bottom: 20px;
+      font-weight: 700;
+      gap: 10px;
+    }
+
+    .about-text h2 img {
+      width: 28px;
+      height: 28px;
+    }
+
+    .about-text p {
+      font-size: 1.15rem;
+      color: #444;
+      line-height: 1.7;
+    }
+
+    /* Card style for content blocks */
+    .card {
+      background: #ffffffcc;
+      border-radius: 12px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      padding: 24px 30px;
+      margin-top: 30px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      box-shadow: 0 8px 25px rgba(0, 150, 136, 0.3);
+    }
+
+    .card h3 {
+      margin-top: 0;
+      color: #00796b;
+      font-weight: 700;
+      border-left: 6px solid #009688;
+      padding-left: 12px;
+      margin-bottom: 18px;
+      font-size: 1.5rem;
+    }
+
+    .card ul {
+      padding-left: 20px;
+      color: #555;
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    .card p {
+      font-size: 1.1rem;
+      color: #555;
+      line-height: 1.6;
+      margin: 0;
+    }
+
+    @keyframes fadeIn {
+      0% {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes popIn {
+      0% {
+        opacity: 0;
+        transform: scale(0.9);
+        box-shadow: 0 0 0 rgba(0, 0, 0, 0);
+      }
+      80% {
+        opacity: 1;
+        transform: scale(1.05);
+        box-shadow: 0 8px 25px rgba(0, 150, 136, 0.3);
+      }
+      100% {
+        transform: scale(1);
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .about-container {
+        flex-direction: column;
+        padding: 30px 20px;
+      }
+
+      .profile-image img {
+        width: 180px;
+        height: 180px;
+      }
+
+      .about-text h2 {
+        font-size: 1.5rem;
+      }
+
+      .about-text p {
+        font-size: 1rem;
+      }
+
+      #menuToggle {
+        display: block;
+      }
+
+      #navLinks {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        margin-top: 10px;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.4s ease;
+      }
+
+      #navLinks.active {
+        max-height: 500px; /* adjust as needed */
+      }
+
+      nav a {
+        margin: 5px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+  <nav role="navigation" aria-label="Primary Navigation">
+    <button id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+    <div id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="about.html" aria-current="page">About</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="about-container" id="about">
+      <div class="profile-image">
+        <img
+          src="https://media.licdn.com/dms/image/v2/D5603AQHPYEha__LQGQ/profile-displayphoto-shrink_800_800/B56ZbXUI1qH0Ag-/0/1747369103167?e=1756339200&v=beta&t=WKaKRh0aLBiMGRf3JAHtYMpRxjImcz_W5qCjuHeG5gI"
+          alt="Pich Brak Profile Picture" />
+      </div>
+      <div class="about-text">
+        <h2>
+          <img
+            src="https://cdn-icons-png.flaticon.com/512/1828/1828817.png"
+            alt=""
+            aria-hidden="true" />
+          About Me
+        </h2>
+        <p>
+          Hello! I’m <strong>Pich Brak</strong>, a passionate and self-motivated web developer from Cambodia. I'm currently
+          pursuing an Associate Degree in Web Programming at <strong>Passerelles numériques Cambodia (PNC)</strong>.
+        </p>
+        <p>
+          I specialize in building responsive and user-friendly websites using technologies like
+          <strong>HTML</strong>, <strong>CSS/Sass</strong>, <strong>JavaScript</strong>, <strong>PHP</strong>,
+          <strong>Vue.js</strong>, <strong>Laravel</strong>, and <strong>MySQL</strong>. I enjoy turning ideas into practical
+          web solutions and continue learning modern web tools to stay current in this fast-evolving field.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // Toggle menu on small screens with aria-expanded for accessibility
+    const toggleBtn = document.getElementById('menuToggle');
+    const navLinks = document.getElementById('navLinks');
+
+    toggleBtn.addEventListener('click', () => {
+      const expanded = toggleBtn.getAttribute('aria-expanded') === 'true';
+      toggleBtn.setAttribute('aria-expanded', String(!expanded));
+      navLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

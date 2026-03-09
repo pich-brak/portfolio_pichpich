@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reflection on Mock Interviews - Pich Brak</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Same CSS as others */
+  </style>
+</head>
+
+<body>
+  <nav>
+    <button id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+    <div id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="progress-challenges.html">Progress Report</a>
+      <a href="interview-advice.html">Interview Advice</a>
+      <a href="reflection.html" aria-current="page">Reflection</a>
+    </div>
+  </nav>
+
+  <section style="max-width: 700px; margin: 60px auto; background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 0 25px rgba(0,0,0,0.06);">
+    <h2>Reflection on Internal Mock Interviews</h2>
+    <p>Participating in internal mock interviews was a valuable experience. I learned the importance of clear communication,
+      confidence, and preparation. The feedback highlighted areas to improve, such as structuring answers better and
+      managing nerves. Overall, it helped build my readiness for real interviews.</p>
+  </section>
+
+  <footer style="text-align:center; padding:24px 20px; background:#009688; color:#fff; font-weight:700; font-size:1rem; text-transform:uppercase; letter-spacing:0.1em; user-select:none;">
+    &copy; 2025 Pich Brak. All rights reserved.
+  </footer>
+
+  <script>
+    window.onload = () => {
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      menuToggle.setAttribute("aria-expanded", "false");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        const expanded = navLinks.classList.contains("active");
+        menuToggle.setAttribute("aria-expanded", expanded);
+      });
+    };
+  </script>
+</body>
+
+</html>

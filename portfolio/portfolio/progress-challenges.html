@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Progress and Challenges - Pich Brak</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&display=swap" rel="stylesheet" />
+  <style>
+    /* Use the same CSS as in index.html */
+  </style>
+</head>
+
+<body>
+  <nav>
+    <button id="menuToggle" aria-label="Toggle navigation menu" aria-expanded="false">☰</button>
+    <div id="navLinks">
+      <a href="index.html">Home</a>
+      <a href="progress-challenges.html" aria-current="page">Progress Report</a>
+      <a href="interview-advice.html">Interview Advice</a>
+      <a href="reflection.html">Reflection</a>
+    </div>
+  </nav>
+
+  <section style="max-width: 900px; margin: 60px auto; background: #fff; padding: 40px; border-radius: 16px; box-shadow: 0 0 25px rgba(0,0,0,0.06);">
+    <h2>Progress and Challenges Report</h2>
+    <p>This report summarizes the progress I have made during this term, along with the challenges I faced.</p>
+
+    <h3>Progress</h3>
+    <ul>
+      <li>Completed multiple projects including a portfolio website and an online shop.</li>
+      <li>Learned advanced CSS techniques and responsive design.</li>
+      <li>Improved JavaScript skills with animation and form handling.</li>
+      <li>Gained practical experience with Vue.js and Laravel frameworks.</li>
+    </ul>
+
+    <h3>Challenges</h3>
+    <ul>
+      <li>Managing time effectively between learning and project work.</li>
+      <li>Debugging complex JavaScript issues, especially with asynchronous code.</li>
+      <li>Understanding backend integration with Laravel and APIs.</li>
+      <li>Keeping consistent design across multiple devices and browsers.</li>
+    </ul>
+  </section>
+
+  <footer style="text-align:center; padding:24px 20px; background:#009688; color:#fff; font-weight:700; font-size:1rem; text-transform:uppercase; letter-spacing:0.1em; user-select:none;">
+    &copy; 2025 Pich Brak. All rights reserved.
+  </footer>
+
+  <script>
+    // Menu toggle for mobile nav
+    window.onload = () => {
+      const menuToggle = document.getElementById("menuToggle");
+      const navLinks = document.getElementById("navLinks");
+      menuToggle.setAttribute("aria-expanded", "false");
+
+      menuToggle.addEventListener("click", () => {
+        navLinks.classList.toggle("active");
+        const expanded = navLinks.classList.contains("active");
+        menuToggle.setAttribute("aria-expanded", expanded);
+      });
+    };
+  </script>
+</body>
+
+</html>
